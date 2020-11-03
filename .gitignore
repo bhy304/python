@@ -149,5 +149,6 @@ dmypy.json
 
 # Ignore all csv files
 *.csv
-
+*.xml
 *.txt
+*.json
