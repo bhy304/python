@@ -12,27 +12,22 @@ xml_files_list = glob.glob(f'{ROOT_PATH}/xml/*')
 result_xlsx = Workbook()
 result_sheet = result_xlsx.active
 
-file_path = f''
 for txt in range(len(txt_files_list)):
     with open(txt_files_list[txt], 'r', encoding='utf-8') as f:
-        print('txt_name: ', txt_files_list[txt])
         contents = f.readlines()
-        print('txt_contents: ', contents)
-
+        # print('txt_name: ', txt_files_list[txt])
+        # print('txt_contents: ', contents)
     f.close()
 
-    txt_xlsx = load_workbook(FILE_PATH, read_only=True)
-    txt_sheet = txt_xlsx.active
-
-    for row in txt_sheet.iter_rows():
-        row_data = []
-        for cell in row:
-            row_data.append(txt_files_list[txt], contents[cell])
+    for row in txt_xlsx.iter_rows():
+        print(row[0])
+#         row_data = []
+#         for cell in row:
+#             row_data.append(txt_files_list[txt], contents[cell])
         
-        result_sheet.append(row_data)
+#         result_sheet.append(row_data)
 
-
-    # print(txt_files_list[txt])
+# result_xlsx.save(f'{FILE_PATH}/txt_result.xlsx')
 
 # if len(txt_files_list) == len(xml_files_list):
 #     for txt in range(len(txt_files_list)):
