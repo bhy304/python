@@ -19,4 +19,3 @@ for idx in range(len(txt_file_list)):
     f.close()
 
     raw_rows = []
-    # for row in 
