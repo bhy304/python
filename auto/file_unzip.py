@@ -1,7 +1,7 @@
 import os
 import glob
 from zipfile import ZipFile
-import openpyxl
+from openpyxl import load_workbook, Workbook
 
 def unzip_file():
     txt_file_list = glob.glob('./auto/txt/*')
@@ -15,7 +15,7 @@ def unzip_file():
         folder_name = os.path.basename(file).split('.')[0]
         # print(folder_name)
 
-        with ZipFile(file, 'r') as zip:
+        with ZipFile(file, 'r',) as zip:
             zip.printdir()
 
             print(f'Extracting all the files now... {file}')
@@ -23,6 +23,7 @@ def unzip_file():
             print('TXT DONE!')
 
     # xml 파일 압축 해제
+    '''
     for file in xml_file_list:
         folder_name = os.path.basename(file).split('.')[0]
         # print(folder_name)
@@ -33,8 +34,9 @@ def unzip_file():
             print(f'Extracting all the files now... {file}')
             zip.extractall(f'./auto/temp/xml/{folder_name}')
             print('XML DONE!')
+        '''
 
 if __name__ == '__main__':
-    print('main.py 실행 중...')
+    print('실행 중...')
     unzip_file()
-    print('DONE')
+    print('ALL DONE!!!!!')
