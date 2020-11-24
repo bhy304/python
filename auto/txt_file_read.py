@@ -18,10 +18,10 @@ for root, dirs, files in os.walk('./auto/temp/txt'):
             second_field = contents[1].strip().split(' ')
             # print(first_field, second_field)
             # print(folder_name)
-
+            # print(folder_name, fname, first_field, second_field)
             sheet.append([folder_name, fname, first_field[0], first_field[1], first_field[2], first_field[3], first_field[4], second_field[0], second_field[1], second_field[2], second_field[3], second_field[4]])
             # print('{0} {1} {2}'.format(fname, contents[0], contents[1]))
         f.close()
 
-xlsx.save('./auto/check_txt.xlsx')
+xlsx.save('./auto/Check.xlsx')
 xlsx.close()
