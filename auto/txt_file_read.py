@@ -1,9 +1,13 @@
 import os
 from openpyxl import load_workbook, Workbook
+from datetime import datetime 
 
 xlsx = Workbook()
 sheet = xlsx.active    
 sheet.freeze_panes = 'A2'
+
+today = datetime.today().strftime("%Y%m%d");
+today_time = datetime.today().strftime("%H%M%S");
 
 sheet.append(['폴더명','txt_파일명', '0(dish)', 'xmin', 'ymin', 'xmax', 'ymax','1(food)', 'xmin', 'ymin', 'xmax', 'ymax'])     
 
@@ -23,5 +27,5 @@ for root, dirs, files in os.walk('./auto/temp/txt'):
             # print('{0} {1} {2}'.format(fname, contents[0], contents[1]))
         f.close()
 
-xlsx.save('./auto/Check.xlsx')
+xlsx.save(f'./auto/Check_{today}_{today_time}.xlsx')
 xlsx.close()
